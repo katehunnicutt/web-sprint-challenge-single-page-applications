@@ -1,11 +1,47 @@
-import React from "react";
 
-const App = () => {
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+export default function App() {
   return (
-    <>
-      <h1>Lambda Eats</h1>
-      <p>You can remove this code and create your own header</p>
-    </>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            
+            <li>
+              <Link to="/pizza">Order</Link>
+            </li>
+          </ul>
+        </nav>
+
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/pizza">
+            <PizzaForm />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
-};
-export default App;
+}
+
+function Home() {
+  return <h2>Home</h2>;
+}
+
+function PizzaForm() {
+  return <h2>Pizza Form</h2>;
+}
