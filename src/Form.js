@@ -47,6 +47,18 @@ export default function Form() {
     const [formErrors, setFormErrors] = useState(intiialFormErrors)
     const [disabled, setDisabled] = useState(initialDisabled)
 
+React.useEffect(() => {
+  console.log(formValues)
+ if(
+   formValues.name!=='' &&
+   formValues.email!=='' &&
+   formValues.size!==''
+
+ )
+ setDisabled(false)
+ else setDisabled(true)
+}, [formValues])
+
 
 const inputChange = (name, value) => {
     setFormValues({
@@ -70,8 +82,16 @@ const inputChange = (name, value) => {
 
 return(
     <div className= 'container'>
-    
+     Hi I am Pizza Form
+     <PizzaForm 
+    values={formValues}
+    submit={submitForm}
+    change={inputChange}
+    disabled={disabled}
+    errors={formErrors}
+     />
 
     </div>
 )
 }
+

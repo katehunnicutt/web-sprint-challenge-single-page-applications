@@ -6,6 +6,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import PizzaForm from './Form'
+
 
 export default function App() {
   return (
@@ -43,6 +45,4 @@ function Home() {
   return <h2>Home</h2>;
 }
 
-function PizzaForm() {
-  return <h2>Pizza Form</h2>;
-}
+
