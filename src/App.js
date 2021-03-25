@@ -1,22 +1,14 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import PizzaForm from './Form'
+import Home from './Home'
+import Header from './Header'
 
 export default function App() {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-
-            <li>
-              <Link to="/pizza">Order</Link>
-            </li>
-          </ul>
-        </nav>
+        <Header />
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
@@ -31,8 +23,4 @@ export default function App() {
       </div>
     </Router>
   )
-}
-
-function Home() {
-  return <h2>Home</h2>
 }
