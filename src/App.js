@@ -1,13 +1,6 @@
-
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import PizzaForm from './Form'
-
 
 export default function App() {
   return (
@@ -18,13 +11,12 @@ export default function App() {
             <li>
               <Link to="/">Home</Link>
             </li>
-            
+
             <li>
               <Link to="/pizza">Order</Link>
             </li>
           </ul>
         </nav>
-
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
@@ -38,11 +30,9 @@ export default function App() {
         </Switch>
       </div>
     </Router>
-  );
+  )
 }
 
 function Home() {
-  return <h2>Home</h2>;
+  return <h2>Home</h2>
 }
-
-
