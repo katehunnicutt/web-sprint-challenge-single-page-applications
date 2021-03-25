@@ -17,22 +17,18 @@ const Title = styled.h1`
   font-size: 2rem;
 `
 
-export default function Header() {
-  return (
-    <HeaderLine>
-      <Title>Lambda Eats</Title>
-      <ButtonLink linkToUrl="/">Home</ButtonLink>
-      <ButtonLink linkToUrl="/pizza">Order</ButtonLink>
-    </HeaderLine>
-  )
-}
-
 const StyledLink = styled(Link)`
   color: #fff;
   text-decoration: none;
   margin: 0.4rem;
 `
 
-function ButtonLink({ linkToUrl, children }) {
-  return <StyledLink to={linkToUrl}>{children}</StyledLink>
+export default function Header() {
+  return (
+    <HeaderLine>
+      <Title>Lambda Eats</Title>
+      <StyledLink to="/">Home</StyledLink>
+      <StyledLink to="/pizza">Order</StyledLink>
+    </HeaderLine>
+  )
 }
