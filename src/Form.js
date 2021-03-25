@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import PizzaForm from './PizzaForm'
-import axios from 'axios'
-import * as yup from 'yup'
 
 
 const pizzaOrders = [
@@ -37,14 +35,13 @@ const intiialFormErrors = {
     size: '',
 }
 
-const initialPizza = []
 const initialDisabled = true
 
 export default function Form() {
 
     const [pizza, setPizza] = useState(pizzaOrders)
     const [formValues, setFormValues] = useState(initialFormValues)
-    const [formErrors, setFormErrors] = useState(intiialFormErrors)
+    const [formErrors] = useState(intiialFormErrors)
     const [disabled, setDisabled] = useState(initialDisabled)
 
 React.useEffect(() => {
