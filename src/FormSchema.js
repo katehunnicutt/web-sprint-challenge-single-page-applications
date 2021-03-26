@@ -19,20 +19,26 @@ const formSchema = yup.object().shape({
     ),
 
   ///drop down
-  size: yup
-    .string()
-    .oneOf(['14inch', '16inch', '18inch', '24inch'], 'Size is Required'),
+  size: yup.string().oneOf(['small', 'medium', 'large'], 'Size is Required'),
 
   base: yup
     .string()
-    .oneOf(['pomodoro', 'garlic olive oil', 'basil pesto'], 'please select a base'),
+    .oneOf(
+      ['pomodoro', 'garlic olive oil', 'basil pesto'],
+      'please select a base'
+    ),
 
   ///checkboxes
   pineapple: yup.boolean(),
   spinach: yup.boolean(),
   artichokeHearts: yup.boolean(),
   sundriedTomatoes: yup.boolean(),
-  goatCheese: yup.boolean()
+  goatCheese: yup.boolean(),
+  redOnion: yup.boolean(),
+  greenPeppers: yup.boolean(),
+  redPeppers: yup.boolean(),
+  bananaPeppers: yup.boolean(),
+  creamCheese: yup.boolean()
 })
 
 export default formSchema
