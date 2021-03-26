@@ -11,12 +11,7 @@ const formSchema = yup.object().shape({
     .string()
     .email('must be a valid email address')
     .required('email address is required'),
-  specialInstructions: yup
-    .string()
-    .trim()
-    .required(
-      'do not add toppings here. some special intructions could result in an increase of price after checkout'
-    ),
+  specialInstructions: yup.string().trim(),
 
   ///drop down
   size: yup.string().oneOf(['small', 'medium', 'large'], 'Size is Required'),

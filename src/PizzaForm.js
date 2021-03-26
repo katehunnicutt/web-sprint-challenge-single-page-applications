@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import formSchema from './FormSchema'
+import axios from 'axios'
 
 const Title = styled.h1`
   text-align: center;
@@ -70,7 +71,11 @@ export default function PizzaForm() {
     resolver: yupResolver(formSchema),
     mode: 'all'
   })
-  const onSubmit = data => console.log(data)
+  const onSubmit = data =>
+    axios
+      .post('https://reqres.in/api/users', data)
+      .then(response => console.log(response.data))
+      .catch(console.error)
 
   React.useEffect(() => {
     setToppingsUnderInstructions(
