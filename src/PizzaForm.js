@@ -14,6 +14,12 @@ const Img = styled.div`
   background-image: url(${props => props.imageUrl});
 `
 
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+`
+
 const ErrorMessage = styled.p`
   margin-top: 0;
   color: darkRed;
@@ -34,9 +40,24 @@ const Toppings = styled.div`
 `
 
 const TextArea = styled.textarea`
-  width: 100%;
+  width: max(80%, 45rem);
   font-family: Arial, Helvetica, sans-serif;
   height: 5rem;
+`
+
+const Button = styled.button`
+  padding: 1rem;
+  background-color: orange;
+  align-self: center;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.1s;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
 `
 
 export default function PizzaForm() {
@@ -52,19 +73,21 @@ export default function PizzaForm() {
   const onSubmit = data => console.log(data)
 
   React.useEffect(() => {
-    setToppingsUnderInstructions([
-      'cheese',
-      'pineapple',
-      'spinach',
-      'artichoke hearts',
-      'sundried tomatoes',
-      'goat cheese',
-      'red onion',
-      'green pepper',
-      'red pepper',
-      'banana peppers',
-      'cream cheese'
-    ].some(topping => specialInstructions.includes(topping)))
+    setToppingsUnderInstructions(
+      [
+        'cheese',
+        'pineapple',
+        'spinach',
+        'artichoke hearts',
+        'sundried tomatoes',
+        'goat cheese',
+        'red onion',
+        'green pepper',
+        'red pepper',
+        'banana peppers',
+        'cream cheese'
+      ].some(topping => specialInstructions.includes(topping))
+    )
   }, [specialInstructions])
 
   return (
@@ -72,7 +95,7 @@ export default function PizzaForm() {
       <Title>Build Your Own Pizza</Title>
       <Img imageUrl="https://cdnimg.webstaurantstore.com/images/articles/42/pizzeria-header.jpg" />
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <h2>Choice of Size</h2>
 
         <select name="size" ref={register}>
@@ -159,23 +182,18 @@ export default function PizzaForm() {
             an increase of price after checkout
           </p>
         )}
-
-        <label>
-          email
-          <input type="email" name="email" ref={register} />
-        </label>
+        <h2>Contact Information</h2>
+        <label htmlFor="email">email</label>
+        <input type="email" name="email" id="email" ref={register} />
         {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
-
-        <label>
-          name
-          <input type="text" name="name" ref={register} />
-        </label>
+        <br />
+        <label htmlFor="name">name</label>
+        <input type="text" name="name" id="name" ref={register} />
         {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
         {errors.name && <ErrorMessage>{errors.name.min}</ErrorMessage>}
-
-        <input type="submit" />
-        <button type="submit">Order Now</button>
-      </form>
+        <br />
+        <Button type="submit">Order Now</Button>
+      </Form>
     </>
   )
 }

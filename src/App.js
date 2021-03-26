@@ -3,6 +3,11 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import PizzaForm from './PizzaForm'
 import Home from './Home'
 import Header from './Header'
+import styled from 'styled-components'
+
+const Page = styled.div`
+  padding: 1rem;
+`
 
 export default function App() {
   return (
@@ -12,14 +17,16 @@ export default function App() {
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/pizza">
-            <PizzaForm />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+        <Page>
+          <Switch>
+            <Route path="/pizza">
+              <PizzaForm />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Page>
       </div>
     </Router>
   )
